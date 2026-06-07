@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Petualangan Suku Kata</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bfc8cd",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-fixed-variant": "#005316",
+                    "outline": "#6f787d",
+                    "secondary-fixed-dim": "#7edb7f",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#89d0ed",
+                    "primary": "#0c6780",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#ffe16d",
+                    "secondary": "#016e21",
+                    "primary-container": "#87ceeb",
+                    "secondary-container": "#99f899",
+                    "on-primary-fixed-variant": "#004d62",
+                    "primary-fixed": "#baeaff",
+                    "on-tertiary-container": "#605000",
+                    "surface-tint": "#0c6780",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "on-secondary-fixed": "#002105",
+                    "surface-bright": "#f7f9fc",
+                    "tertiary-container": "#e6c200",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-container": "#0f7427",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f7f9fc",
+                    "on-primary-fixed": "#001f29",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#99f899",
+                    "on-primary-container": "#005870",
+                    "on-surface-variant": "#3f484c",
+                    "background": "#f7f9fc",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#705d00",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#89d0ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-padding": "24px",
+                    "touch-target-min": "56px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "display-hero-mobile": ["Nunito Sans"],
+                    "label-bold": ["Nunito Sans"],
+                    "body-lg": ["Nunito Sans"],
+                    "headline-lg": ["Nunito Sans"],
+                    "display-hero": ["Nunito Sans"]
+            },
+            "fontSize": {
+                    "display-hero-mobile": ["36px", {"lineHeight": "42px", "fontWeight": "900"}],
+                    "label-bold": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "body-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "900"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Nunito Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .chunky-shadow-primary { box-shadow: 0px 8px 0px 0px #004d62; }
+        .chunky-shadow-secondary { box-shadow: 0px 8px 0px 0px #005316; }
+        .chunky-shadow-surface { box-shadow: 0px 8px 0px 0px #bfc8cd; }
+        .chunky-shadow-card { box-shadow: 0px 6px 0px 0px #d8dadc; }
+        .active-press:active { transform: translateY(4px); box-shadow: 0px 4px 0px 0px currentColor; }
+        .island-card { background-color: #ffffff; border-radius: 2rem; box-shadow: 0px 8px 0px 0px #e0e3e5; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary-container min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-bright shadow-[0px_4px_0px_0px_rgba(216,218,220,1)] flex justify-between items-center px-container-padding h-touch-target-min w-full z-50 sticky top-0">
+<div class="flex items-center gap-4">
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center bg-surface-container rounded-lg chunky-shadow-card hover:translate-y-1 transition-all active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined text-primary text-[32px]">settings</span>
+</button>
+</div>
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-primary tracking-tight">Suku Kata</h1>
+<div class="flex items-center gap-3">
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center bg-tertiary-container text-on-tertiary-container rounded-lg chunky-shadow-card hover:translate-y-1 transition-all active:translate-y-1 active:shadow-none" title="Stickers">
+<span class="material-symbols-outlined text-[32px]">stars</span>
+</button>
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg chunky-shadow-card hover:translate-y-1 transition-all active:translate-y-1 active:shadow-none" title="Info">
+<span class="material-symbols-outlined text-[32px]">info</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-gutter pt-8 space-y-8">
+<!-- Main Headline -->
+<div class="text-center space-y-2">
+<div class="flex justify-center items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary text-4xl animate-bounce">videogame_asset</span>
+<span class="material-symbols-outlined text-secondary text-4xl animate-pulse" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface uppercase tracking-wide">PETUALANGAN SUKU KATA</h2>
+</div>
+<!-- Main Feature Card: SYLLABLE SAFARI -->
+<section class="island-card overflow-hidden p-6 border-4 border-white">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-video bg-secondary-container">
+<img alt="Colorful Parrot in Jungle" class="w-full h-full object-cover" data-alt="A vibrant, multi-colored parrot with brilliant blue and yellow feathers perched on a lush tropical branch. The background is a dense, stylized jungle filled with deep emerald leaves and soft, magical sunlight filtering through the canopy. The image has a friendly, high-contrast illustrated feel consistent with a child-friendly educational game, featuring soft-tactile modernism and a warm, inviting atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjBJkQoJHMCITM_rQygY5RmMBGTefhhuSwcZbF29e_6q5U5aO7nG07rV0kCaMI5fI2TCaPGtiI0BpmPjp_gQ_Lx6arWv1_mdtccuhFOFn1B0y8o0CU31lTiqHVkrUvQpd69S78dht8jbFS-76CBgSvCTnpbrVpUmy7CaiwHZLYE8IGxuv3oeIPmK766iMjBB3avng1ttRfnDKwrvJAL9x7IZXuNUcM0hWRwSc7f_mO9i5Q9gbMpkYc2o99vEXn_ROnpF9kYDngl0hL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary text-on-primary px-4 py-1 rounded-full font-label-bold text-sm tracking-widest uppercase">SYLLABLE SAFARI</span>
+</div>
+</div>
+<div class="space-y-4 text-center">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Learn Syllables!</h3>
+<p class="font-body-lg text-on-surface-variant">Join our parrot friend on a jungle quest to master words!</p>
+<button class="w-full py-6 bg-secondary text-on-secondary rounded-xl chunky-shadow-secondary hover:scale-[1.02] transition-transform active:translate-y-1 active:shadow-none flex items-center justify-center gap-3">
+<span class="font-label-bold text-label-bold">TAP TO PLAY</span>
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</button>
+</div>
+</section>
+<!-- Coming Soon Card -->
+<section class="bg-surface-container-high/80 rounded-xl p-6 border-4 border-dashed border-outline-variant opacity-80">
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 bg-surface-dim rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-4xl">lock</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-outline">Future Game 2</h4>
+<p class="font-body-lg text-outline-variant text-base">Coming Soon!</p>
+</div>
+</div>
+</section>
+<!-- Footer Badge Area -->
+<footer class="flex flex-col items-center gap-4 py-4">
+<div class="bg-white/90 px-6 py-3 rounded-full shadow-lg border-2 border-primary-container flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-on-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+</div>
+<div class="text-on-surface">
+<span class="font-label-bold text-lg">Sticker Badges: </span>
+<span class="font-display-hero-mobile text-primary text-xl">3/20</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (Mandatory Shell) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter pb-4 h-24 bg-surface-container dark:bg-inverse-surface rounded-t-lg shadow-[0px_-4px_0px_0px_rgba(224,227,229,1)] border-t-4 border-surface-container-highest">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-6 py-2 shadow-[0px_4px_0px_0px_rgba(15,116,39,1)] hover:scale-105 transition-transform active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[32px]">videogame_asset</span>
+<span class="font-label-bold text-[12px] leading-tight">Main</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:scale-105 transition-transform active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[32px]">stars</span>
+<span class="font-label-bold text-[12px] leading-tight">Stiker</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:scale-105 transition-transform active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[32px]">person</span>
+<span class="font-label-bold text-[12px] leading-tight">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for chunky buttons
+        document.querySelectorAll('button, a').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.classList.add('scale-95');
+            });
+            btn.addEventListener('touchend', () => {
+                btn.classList.remove('scale-95');
+            });
+        });
+
+        // Atmospheric gentle float animation for elements
+        const animateBadges = () => {
+            const footer = document.querySelector('footer div');
+            if(footer) {
+                let angle = 0;
+                setInterval(() => {
+                    angle += 0.05;
+                    const y = Math.sin(angle) * 5;
+                    footer.style.transform = `translateY(${y}px)`;
+                }, 50);
+            }
+        };
+        animateBadges();
+    </script>
+</body></html>

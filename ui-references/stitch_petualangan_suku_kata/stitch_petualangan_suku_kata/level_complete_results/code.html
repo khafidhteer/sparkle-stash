@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bfc8cd",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-fixed-variant": "#005316",
+                    "outline": "#6f787d",
+                    "secondary-fixed-dim": "#7edb7f",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#89d0ed",
+                    "primary": "#0c6780",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#ffe16d",
+                    "secondary": "#016e21",
+                    "primary-container": "#87ceeb",
+                    "secondary-container": "#99f899",
+                    "on-primary-fixed-variant": "#004d62",
+                    "primary-fixed": "#baeaff",
+                    "on-tertiary-container": "#605000",
+                    "surface-tint": "#0c6780",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "on-secondary-fixed": "#002105",
+                    "surface-bright": "#f7f9fc",
+                    "tertiary-container": "#e6c200",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-container": "#0f7427",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f7f9fc",
+                    "on-primary-fixed": "#001f29",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#99f899",
+                    "on-primary-container": "#005870",
+                    "on-surface-variant": "#3f484c",
+                    "background": "#f7f9fc",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#705d00",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#89d0ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-padding": "24px",
+                    "touch-target-min": "56px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "display-hero-mobile": ["Nunito Sans"],
+                    "label-bold": ["Nunito Sans"],
+                    "body-lg": ["Nunito Sans"],
+                    "headline-lg": ["Nunito Sans"],
+                    "display-hero": ["Nunito Sans"]
+            },
+            "fontSize": {
+                    "display-hero-mobile": ["36px", {"lineHeight": "42px", "fontWeight": "900"}],
+                    "label-bold": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "body-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "900"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pop-in {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        @keyframes confetti-fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pop { animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 100;
+        }
+        .chunky-shadow-green { box-shadow: 0px 8px 0px 0px #005316; }
+        .chunky-shadow-green:active { box-shadow: 0px 4px 0px 0px #005316; transform: translateY(4px); }
+        .chunky-shadow-blue { box-shadow: 0px 8px 0px 0px #004d62; }
+        .chunky-shadow-blue:active { box-shadow: 0px 4px 0px 0px #004d62; transform: translateY(4px); }
+        .chunky-card-shadow { box-shadow: 0px 8px 0px 0px #d8dadc; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary-container font-body-lg text-on-surface overflow-hidden">
+<!-- Game Backdrop (Blurred Zone 1 Screen) -->
+<main class="fixed inset-0 z-0 flex flex-col items-center justify-center blur-sm saturate-50 opacity-60">
+<header class="bg-surface-bright shadow-[0px_4px_0px_0px_rgba(216,218,220,1)] flex justify-between items-center px-container-padding h-touch-target-min w-full z-10 absolute top-0">
+<div class="font-display-hero-mobile text-display-hero-mobile text-primary">Suku Kata</div>
+<span class="material-symbols-outlined text-primary text-4xl">pause</span>
+</header>
+<div class="grid grid-cols-2 gap-6 p-8 w-full max-w-md">
+<!-- Mock Game Syllable Cards -->
+<div class="bg-surface-container-lowest rounded-lg h-40 flex items-center justify-center border-4 border-primary text-primary font-display-hero-mobile">BA</div>
+<div class="bg-surface-container-lowest rounded-lg h-40 flex items-center justify-center border-4 border-primary text-primary font-display-hero-mobile">JU</div>
+<div class="bg-surface-container-lowest rounded-lg h-40 flex items-center justify-center border-4 border-primary text-primary font-display-hero-mobile">BO</div>
+<div class="bg-surface-container-lowest rounded-lg h-40 flex items-center justify-center border-4 border-primary text-primary font-display-hero-mobile">LA</div>
+</div>
+</main>
+<!-- Overlay / Backdrop Dimmer -->
+<div class="fixed inset-0 bg-on-background/40 z-40 backdrop-blur-sm"></div>
+<!-- Celebration Level Complete Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-gutter">
+<div class="animate-pop bg-surface-container-lowest rounded-xl w-full max-w-lg chunky-card-shadow relative overflow-hidden flex flex-col items-center p-8 text-center border-4 border-surface-container-high">
+<!-- Confetti Container (JS populated) -->
+<div class="absolute inset-0 pointer-events-none" id="confetti-container"></div>
+<!-- Top Decorative Burst -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-tertiary-container rounded-full opacity-20 animate-pulse"></div>
+<div class="absolute -bottom-12 -left-12 w-32 h-32 bg-secondary-container rounded-full opacity-20 animate-pulse"></div>
+<!-- Headline -->
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-primary mb-2 drop-shadow-sm">
+                ✨ LEVEL SELESAI! ✨
+            </h1>
+<!-- Stars Animation -->
+<div class="flex gap-4 my-6">
+<div class="animate-float" style="animation-delay: 0s;">
+<span class="material-symbols-outlined text-7xl text-tertiary-container drop-shadow-md" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="animate-float -translate-y-4" style="animation-delay: 0.2s;">
+<span class="material-symbols-outlined text-8xl text-tertiary-container drop-shadow-md" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="animate-float" style="animation-delay: 0.4s;">
+<span class="material-symbols-outlined text-7xl text-tertiary-container drop-shadow-md" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<!-- Score Display -->
+<div class="bg-surface-container rounded-lg px-8 py-4 mb-8 border-4 border-primary-container">
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider mb-1">SKOR</p>
+<p class="font-display-hero text-display-hero text-primary">320 POIN</p>
+</div>
+<!-- Sticker Reward -->
+<div class="relative group mb-10">
+<div class="absolute inset-0 bg-secondary-container blur-xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+<div class="relative bg-surface-bright border-4 border-dashed border-secondary rounded-full p-4 w-40 h-40 flex flex-col items-center justify-center animate-float">
+<img alt="Sticker" class="w-24 h-24" data-alt="A charming, high-quality 3D digital illustration of a cute calico kitten sticker with large expressive eyes and a friendly smile. The kitten is rendered in a soft-tactile modern style with thick outlines and vibrant colors, set against a clean white circle. The aesthetic is playful and encouraging, fitting for a children's educational app with a warm, cheerful atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt8DjhAo3P9SswpLyqFLfnGE6naB12xPjsvAsKtw7HoK-uT8dVhhtnJAC5E8uywCARyX33NhRNYVPPA78Mf4CEXGpPt4QEds3Jpsz2tvPoKm-zK0DYwUC7Uc8nBKJmnyDR6KT4_Y9NWA_HftnOiylF4LYrQzkgd1WzYCPoJEVorqb6QzPiVPtIZG--fc4scU237qZSSEQxQNo5-ypuTBa4hfAEdL5XSb5I_4oHW4eOsbHVsvnydM5tyMbMFj62fNYW_5Su__MOlngC"/>
+<div class="absolute -bottom-4 bg-secondary text-on-secondary px-4 py-1 rounded-full font-label-bold text-sm whitespace-nowrap shadow-md">
+                        STICKER DIPEROLEH!
+                    </div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-6 w-full px-4">
+<button class="w-full bg-secondary text-on-secondary font-display-hero-mobile text-display-hero-mobile py-4 rounded-lg chunky-shadow-green transition-all hover:brightness-110 active:brightness-95 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-4xl">play_circle</span>
+                    LANJUTKAN
+                </button>
+<button class="w-full bg-primary-container text-on-primary-container font-label-bold text-label-bold py-4 rounded-lg chunky-shadow-blue transition-all hover:brightness-110 active:brightness-95 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-3xl">home</span>
+                    KE MENU
+                </button>
+</div>
+</div>
+</div>
+<!-- Hidden Bottom Nav (Disabled for Modal Scene) -->
+<nav class="hidden">
+<div class="label_texts">Main</div>
+<div class="label_texts">Stiker</div>
+<div class="label_texts">Profil</div>
+</nav>
+<script>
+        // Simple Confetti Generator
+        const container = document.getElementById('confetti-container');
+        const colors = ['#0c6780', '#016e21', '#ffe16d', '#ba1a1a', '#87ceeb'];
+        
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetto = document.createElement('div');
+                confetto.classList.add('confetti');
+                confetto.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetto.style.left = Math.random() * 100 + 'vw';
+                confetto.style.top = '-10px';
+                confetto.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                confetto.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 2;
+                
+                confetto.style.animation = `confetti-fall ${duration}s linear ${delay}s forwards`;
+                
+                container.appendChild(confetto);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    confetto.remove();
+                }, (duration + delay) * 1000);
+            }
+        }
+
+        // Trigger confetti on load
+        window.addEventListener('load', () => {
+            createConfetti();
+            // Interval for periodic bursts
+            setInterval(createConfetti, 4000);
+        });
+
+        // Add some interactive hover sound mock or behavior
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                // Potential for slight scale up on hover if not covered by active state
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#bfc8cd",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#005316",
+                        "outline": "#6f787d",
+                        "secondary-fixed-dim": "#7edb7f",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#89d0ed",
+                        "primary": "#0c6780",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed": "#ffe16d",
+                        "secondary": "#016e21",
+                        "primary-container": "#87ceeb",
+                        "secondary-container": "#99f899",
+                        "on-primary-fixed-variant": "#004d62",
+                        "primary-fixed": "#baeaff",
+                        "on-tertiary-container": "#605000",
+                        "surface-tint": "#0c6780",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-secondary-fixed": "#002105",
+                        "surface-bright": "#f7f9fc",
+                        "tertiary-container": "#e6c200",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#0f7427",
+                        "surface-container-high": "#e6e8ea",
+                        "surface": "#f7f9fc",
+                        "on-primary-fixed": "#001f29",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "surface-container-low": "#f2f4f6",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#99f899",
+                        "on-primary-container": "#005870",
+                        "on-surface-variant": "#3f484c",
+                        "background": "#f7f9fc",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#705d00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#89d0ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-padding": "24px",
+                        "touch-target-min": "56px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-hero-mobile": ["Nunito Sans"],
+                        "label-bold": ["Nunito Sans"],
+                        "body-lg": ["Nunito Sans"],
+                        "headline-lg": ["Nunito Sans"],
+                        "display-hero": ["Nunito Sans"]
+                    },
+                    "fontSize": {
+                        "display-hero-mobile": ["36px", {"lineHeight": "42px", "fontWeight": "900"}],
+                        "label-bold": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                        "body-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+                        "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "900"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        .chunky-shadow-primary {
+            box-shadow: 0px 8px 0px 0px #084c5f;
+        }
+        .chunky-shadow-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0px 4px 0px 0px #084c5f;
+        }
+        .chunky-shadow-secondary {
+            box-shadow: 0px 8px 0px 0px #005316;
+        }
+        .chunky-shadow-secondary:active {
+            transform: translateY(4px);
+            box-shadow: 0px 4px 0px 0px #005316;
+        }
+        .chunky-shadow-tertiary {
+            box-shadow: 0px 8px 0px 0px #b89c00;
+        }
+        .chunky-shadow-tertiary:active {
+            transform: translateY(4px);
+            box-shadow: 0px 4px 0px 0px #b89c00;
+        }
+        .chunky-shadow-error {
+            box-shadow: 0px 8px 0px 0px #93000a;
+        }
+        .chunky-shadow-error:active {
+            transform: translateY(4px);
+            box-shadow: 0px 4px 0px 0px #93000a;
+        }
+
+        @keyframes pulse-speaker {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pulse-animation {
+            animation: pulse-speaker 2s infinite ease-in-out;
+        }
+        
+        .jungle-gradient {
+            background: linear-gradient(to bottom, #baeaff 0%, #f7f9fc 100%);
+        }
+
+        .balloon-bounce {
+            animation: bounce-float 3s infinite ease-in-out;
+        }
+        @keyframes bounce-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-bright font-body-lg text-on-surface m-0 p-0 overflow-hidden select-none">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-bright shadow-[0px_4px_0px_0px_rgba(216,218,220,1)] flex justify-between items-center px-container-padding h-touch-target-min w-full z-50 docked full-width top-0">
+<div class="flex items-center gap-2">
+<div class="bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label-bold text-label-bold border-2 border-primary">
+                1/3
+            </div>
+</div>
+<button class="bg-surface-container-high text-primary rounded-full w-12 h-12 flex items-center justify-center hover:translate-y-1 transition-transform active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined" data-icon="pause">pause</span>
+</button>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-tertiary-container text-on-tertiary-container px-4 py-1 rounded-full font-label-bold text-label-bold border-2 border-tertiary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+                100
+            </div>
+<button class="text-primary hover:translate-y-1 transition-transform active:translate-y-1">
+<span class="material-symbols-outlined text-[32px]" data-icon="home">home</span>
+</button>
+</div>
+</header>
+<!-- Main Game Canvas -->
+<main class="relative w-full h-[calc(100vh-56px)] jungle-gradient overflow-hidden flex flex-col items-center pt-8">
+<!-- Background Decor (Jungle Trees) -->
+<div class="absolute bottom-0 left-0 w-full h-64 pointer-events-none z-0">
+<div class="absolute -bottom-10 -left-20 w-80 h-96 opacity-40 bg-secondary rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -right-20 w-80 h-96 opacity-40 bg-primary rounded-full blur-3xl"></div>
+<!-- Abstract Trees -->
+<div class="absolute bottom-0 left-8 flex flex-col items-center">
+<div class="w-16 h-32 bg-[#5d4037] rounded-t-lg"></div>
+<div class="w-48 h-48 -mt-40 bg-secondary rounded-full flex items-center justify-center border-b-8 border-[#005316]"></div>
+</div>
+<div class="absolute bottom-0 right-12 flex flex-col items-center">
+<div class="w-12 h-24 bg-[#5d4037] rounded-t-lg"></div>
+<div class="w-40 h-40 -mt-32 bg-primary rounded-full flex items-center justify-center border-b-8 border-[#084c5f]"></div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="relative z-10 w-full max-w-2xl px-gutter flex flex-col items-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 tracking-wide uppercase">Hutan Bunyi</h2>
+<!-- Character Prompt Card -->
+<div class="bg-surface-container-lowest border-4 border-primary-container rounded-xl p-6 mb-8 w-full flex flex-col items-center chunky-shadow-primary">
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-4">DENGARKAN!</p>
+<button class="relative group" onclick="playSyllableSound()">
+<!-- Character (Parrot) Placeholder -->
+<div class="w-32 h-32 bg-tertiary rounded-full overflow-hidden border-4 border-on-tertiary-container relative mb-2 group-active:scale-95 transition-transform">
+<img alt="Colorful parrot in jungle" class="w-full h-full object-cover" data-alt="A friendly and vibrantly colored cartoon parrot sitting on a tropical branch. The parrot is illustrated in a soft-tactile modern style with thick outlines and cheerful, expressive eyes. The background shows a lush, soft-focus jungle with oversized green leaves. The overall mood is educational, playful, and high-energy for a children's learning application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7qPTHv6vRbxdzU0cZ7YXK4paD-nm923mIQRkLOdTxPxAuzBi7b-PpTqo1Y8WJTqqm8_8YCQ3PsGnCmy6Ox8-aQr-GJ88jeNKt6A8mloLim4-1y_WPzGCv61ebo-K-0GB-I_O0i0c2hn4Y1AZVcO3ZDFuCbK9v8dtuxTfc9feuBPOCM4Q8cKiLJUaOQxTON8r5kyntofhbMe_ijRlCJTmtV3GebsS7cFYtF2nf_inTKTqKlCbQMhHLrGP6OS_5YzF89AuUQEZiE92w"/>
+</div>
+<!-- Pulsing Speaker Icon -->
+<div class="absolute -right-2 -bottom-2 bg-primary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-lg border-4 border-white pulse-animation">
+<span class="material-symbols-outlined text-[32px]" data-icon="volume_up" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</div>
+</button>
+<div class="hidden mt-4 text-display-hero-mobile font-display-hero-mobile text-primary" id="syllable-reveal">BA</div>
+</div>
+<!-- Instruction -->
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-6 bg-surface-container p-2 px-6 rounded-full shadow-inner">
+                KLIK BALON YANG SESUAI:
+            </p>
+<!-- Choice Grid -->
+<div class="grid grid-cols-2 gap-6 w-full max-w-md pb-24">
+<!-- BA Button -->
+<button class="balloon-bounce bg-primary-container h-32 rounded-t-[4rem] rounded-b-[2rem] flex flex-col items-center justify-center chunky-shadow-primary relative group" onclick="checkAnswer('BA')">
+<span class="font-display-hero-mobile text-display-hero-mobile text-on-primary-container">BA</span>
+<!-- Balloon String -->
+<div class="absolute -bottom-6 w-1 h-6 bg-outline-variant"></div>
+</button>
+<!-- BI Button -->
+<button class="balloon-bounce bg-secondary-container h-32 rounded-t-[4rem] rounded-b-[2rem] flex flex-col items-center justify-center chunky-shadow-secondary relative group" onclick="checkAnswer('BI')" style="animation-delay: 0.2s;">
+<span class="font-display-hero-mobile text-display-hero-mobile text-on-secondary-container">BI</span>
+<div class="absolute -bottom-6 w-1 h-6 bg-outline-variant"></div>
+</button>
+<!-- BU Button -->
+<button class="balloon-bounce bg-tertiary-container h-32 rounded-t-[4rem] rounded-b-[2rem] flex flex-col items-center justify-center chunky-shadow-tertiary relative group" onclick="checkAnswer('BU')" style="animation-delay: 0.4s;">
+<span class="font-display-hero-mobile text-display-hero-mobile text-on-tertiary-container">BU</span>
+<div class="absolute -bottom-6 w-1 h-6 bg-outline-variant"></div>
+</button>
+<!-- BE Button -->
+<button class="balloon-bounce bg-error-container h-32 rounded-t-[4rem] rounded-b-[2rem] flex flex-col items-center justify-center chunky-shadow-error relative group" onclick="checkAnswer('BE')" style="animation-delay: 0.6s;">
+<span class="font-display-hero-mobile text-display-hero-mobile text-on-error-container">BE</span>
+<div class="absolute -bottom-6 w-1 h-6 bg-outline-variant"></div>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Suppressed because focused task, but following rules to include if defined) -->
+<!-- Determined it should be suppressed for focused gameplay as per "Relevance Check" rules -->
+<!-- Feedback Toast (Hidden by default) -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-[100] transform -translate-y-40 transition-transform duration-500 ease-out" id="feedback-toast">
+<div class="bg-secondary text-on-secondary font-label-bold text-label-bold py-4 px-10 rounded-full shadow-2xl flex items-center gap-3 border-4 border-white" id="feedback-bg">
+<span class="material-symbols-outlined text-[40px]" id="feedback-icon">check_circle</span>
+<span id="feedback-text">KEREN!</span>
+</div>
+</div>
+<script>
+        function playSyllableSound() {
+            // Simulated sound play
+            const parrot = document.querySelector('.pulse-animation');
+            parrot.classList.remove('pulse-animation');
+            void parrot.offsetWidth; // trigger reflow
+            parrot.classList.add('pulse-animation');
+            
+            // In a real app, an audio file would play here
+            console.log("Playing Sound: BA");
+        }
+
+        function checkAnswer(syllable) {
+            const toast = document.getElementById('feedback-toast');
+            const bg = document.getElementById('feedback-bg');
+            const icon = document.getElementById('feedback-icon');
+            const text = document.getElementById('feedback-text');
+            const reveal = document.getElementById('syllable-reveal');
+
+            if (syllable === 'BA') {
+                // Success
+                bg.className = "bg-secondary text-on-secondary font-label-bold text-label-bold py-4 px-10 rounded-full shadow-2xl flex items-center gap-3 border-4 border-white chunky-shadow-secondary";
+                icon.innerText = "stars";
+                text.innerText = "HEBAT! BA!";
+                reveal.classList.remove('hidden');
+                
+                // Pop effect for chosen balloon
+                event.currentTarget.classList.add('scale-110');
+                setTimeout(() => event.currentTarget.classList.remove('scale-110'), 200);
+            } else {
+                // Incorrect
+                bg.className = "bg-error text-on-error font-label-bold text-label-bold py-4 px-10 rounded-full shadow-2xl flex items-center gap-3 border-4 border-white chunky-shadow-error";
+                icon.innerText = "error";
+                text.innerText = "COBA LAGI!";
+            }
+
+            // Show Toast
+            toast.classList.remove('-translate-y-40');
+            toast.classList.add('translate-y-0');
+
+            // Hide Toast
+            setTimeout(() => {
+                toast.classList.add('-translate-y-40');
+                toast.classList.remove('translate-y-0');
+                if (syllable === 'BA') {
+                    // Reset for next round or continue
+                }
+            }, 2000);
+        }
+    </script>
+</body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suku Kata - Pilih Zona</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bfc8cd",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-fixed-variant": "#005316",
+                    "outline": "#6f787d",
+                    "secondary-fixed-dim": "#7edb7f",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#89d0ed",
+                    "primary": "#0c6780",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#ffe16d",
+                    "secondary": "#016e21",
+                    "primary-container": "#87ceeb",
+                    "secondary-container": "#99f899",
+                    "on-primary-fixed-variant": "#004d62",
+                    "primary-fixed": "#baeaff",
+                    "on-tertiary-container": "#605000",
+                    "surface-tint": "#0c6780",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "on-secondary-fixed": "#002105",
+                    "surface-bright": "#f7f9fc",
+                    "tertiary-container": "#e6c200",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-container": "#0f7427",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f7f9fc",
+                    "on-primary-fixed": "#001f29",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#99f899",
+                    "on-primary-container": "#005870",
+                    "on-surface-variant": "#3f484c",
+                    "background": "#f7f9fc",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#705d00",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#89d0ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-padding": "24px",
+                    "touch-target-min": "56px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "display-hero-mobile": ["Nunito Sans"],
+                    "label-bold": ["Nunito Sans"],
+                    "body-lg": ["Nunito Sans"],
+                    "headline-lg": ["Nunito Sans"],
+                    "display-hero": ["Nunito Sans"]
+            },
+            "fontSize": {
+                    "display-hero-mobile": ["36px", {"lineHeight": "42px", "fontWeight": "900"}],
+                    "label-bold": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "body-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "900"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            user-select: none;
+        }
+        .chunky-shadow-primary { box-shadow: 0px 8px 0px 0px #084d60; }
+        .chunky-shadow-secondary { box-shadow: 0px 8px 0px 0px #015316; }
+        .chunky-shadow-tertiary { box-shadow: 0px 8px 0px 0px #9e8500; }
+        .chunky-shadow-white { box-shadow: 0px 4px 0px 0px #d8dadc; }
+        
+        .active-press:active {
+            transform: translateY(4px);
+            box-shadow: 0px 4px 0px 0px currentColor;
+        }
+        
+        .zone-card-active {
+            border: 6px solid #0c6780;
+            transform: scale(1.02);
+        }
+
+        body {
+            background-color: #f7f9fc;
+            background-image: radial-gradient(#eceef0 2px, transparent 2px);
+            background-size: 32px 32px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-lg text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface-bright shadow-[0px_4px_0px_0px_rgba(216,218,220,1)] flex justify-between items-center px-container-padding h-touch-target-min w-full z-50 sticky top-0">
+<button class="flex items-center justify-center w-12 h-12 rounded-full hover:bg-surface-container active:translate-y-1 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">arrow_back</span>
+</button>
+<h1 class="font-display-hero-mobile text-headline-lg-mobile text-primary">PILIH ZONA</h1>
+<button class="flex items-center justify-center w-12 h-12 rounded-full hover:bg-surface-container active:translate-y-1 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">pause</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center px-container-padding py-8 space-y-10 max-w-5xl mx-auto w-full">
+<!-- Zone Selection: Three Large Vertical Cards -->
+<section class="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Zone 1 -->
+<div class="relative group cursor-pointer flex flex-col items-center p-6 bg-primary-container rounded-lg chunky-shadow-primary border-4 border-transparent hover:border-primary transition-all active:translate-y-1 active:shadow-none">
+<div class="w-24 h-24 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 shadow-inner">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</div>
+<h2 class="font-headline-lg-mobile text-on-primary-container text-center mb-2">ZONA 1</h2>
+<p class="font-label-bold text-on-primary-container text-center leading-tight">Hutan Bunyi (Recognize)</p>
+<div class="absolute -top-4 -right-4 bg-secondary text-on-secondary px-4 py-1 rounded-full text-sm font-bold shadow-lg">AKTIF</div>
+</div>
+<!-- Zone 2 -->
+<div class="relative group cursor-pointer flex flex-col items-center p-6 bg-secondary-container rounded-lg chunky-shadow-secondary border-4 border-transparent hover:border-secondary transition-all active:translate-y-1 active:shadow-none grayscale opacity-80">
+<div class="w-24 h-24 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 shadow-inner">
+<span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings: 'FILL' 1;">foundation</span>
+</div>
+<h2 class="font-headline-lg-mobile text-on-secondary-container text-center mb-2">ZONA 2</h2>
+<p class="font-label-bold text-on-secondary-container text-center leading-tight">Jembatan Kata (Blend)</p>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-on-secondary-container text-6xl opacity-40">lock</span>
+</div>
+</div>
+<!-- Zone 3 -->
+<div class="relative group cursor-pointer flex flex-col items-center p-6 bg-tertiary-container rounded-lg chunky-shadow-tertiary border-4 border-transparent hover:border-tertiary transition-all active:translate-y-1 active:shadow-none grayscale opacity-80">
+<div class="w-24 h-24 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 shadow-inner">
+<span class="material-symbols-outlined text-tertiary text-5xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<h2 class="font-headline-lg-mobile text-on-tertiary-container text-center mb-2">ZONA 3</h2>
+<p class="font-label-bold text-on-tertiary-container text-center leading-tight">Labirin Cepat (Speed)</p>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-on-tertiary-container text-6xl opacity-40">lock</span>
+</div>
+</div>
+</section>
+<!-- Level Selection Section -->
+<section class="w-full bg-surface-container-lowest p-8 rounded-lg chunky-shadow-white border-2 border-surface-container-highest">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-lg-mobile text-primary">Level Progres</h3>
+<span class="text-on-surface-variant font-label-bold">4/10 Selesai</span>
+</div>
+<div class="grid grid-cols-5 md:grid-cols-10 gap-4">
+<!-- Levels 1-4: Completed -->
+<div class="aspect-square flex items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container chunky-shadow-secondary active:translate-y-1 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-3xl font-bold">check</span>
+</div>
+<div class="aspect-square flex items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container chunky-shadow-secondary active:translate-y-1 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-3xl font-bold">check</span>
+</div>
+<div class="aspect-square flex items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container chunky-shadow-secondary active:translate-y-1 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-3xl font-bold">check</span>
+</div>
+<div class="aspect-square flex items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container chunky-shadow-secondary active:translate-y-1 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-3xl font-bold">check</span>
+</div>
+<!-- Level 5: In Progress -->
+<div class="aspect-square flex items-center justify-center rounded-lg bg-primary-container text-on-primary-container chunky-shadow-primary border-4 border-primary animate-pulse active:translate-y-1 transition-all cursor-pointer scale-110 z-10">
+<span class="font-display-hero-mobile">5</span>
+</div>
+<!-- Levels 6-10: Locked -->
+<div class="aspect-square flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant chunky-shadow-white opacity-50">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="aspect-square flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant chunky-shadow-white opacity-50">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="aspect-square flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant chunky-shadow-white opacity-50">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="aspect-square flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant chunky-shadow-white opacity-50">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="aspect-square flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant chunky-shadow-white opacity-50">
+<span class="material-symbols-outlined">lock</span>
+</div>
+</div>
+</section>
+<!-- Promotional Banner/Visual -->
+<div class="w-full relative overflow-hidden rounded-xl h-48 bg-primary">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="A whimsical digital illustration of a lush jungle for children with giant colorful flowers and friendly cartoon animals peeking from behind large green leaves. The lighting is bright and cheerful, matching a sunlit morning in a fantasy forest. The style is soft-tactile modernism with smooth gradients and playful 3D shapes in shades of blue and green." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvQfmrsGze1GBt1CpYUfwa66qJCTm6tYLCsOkV2h6XdiX50Ee6Hk_oJVbfXaTLppfq5OAvrUldR_fMV-Ls-Nnzj6S5IDqy8NI0-NadUW6cFCyRt49O75t_nDZajw1r3VrJYHwUvi-X8upu1A_46c_uckozXHn8bo1ql2FDhD_mP5W3d6TpsagJJATLZyHHZ-4tdcZlD7Ys9jHjOWOKp-KzIv6d5Nyap3OqjWdCfviR8pEtPHJY4LqToqieEe16zF3qljOdTzJezBHV"/>
+<div class="absolute inset-0 flex items-center justify-between px-10">
+<div class="max-w-md">
+<h4 class="text-white font-headline-lg-mobile mb-2">Petualangan Menunggu!</h4>
+<p class="text-primary-fixed font-label-bold">Selesaikan Level 5 untuk membuka Stiker baru.</p>
+</div>
+<span class="material-symbols-outlined text-white text-7xl opacity-80" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+</main>
+<!-- Footer CTA -->
+<footer class="sticky bottom-0 bg-surface-bright p-gutter flex flex-col items-center justify-center z-50">
+<button class="w-full max-w-lg bg-secondary text-on-secondary font-display-hero-mobile py-4 rounded-xl chunky-shadow-secondary hover:translate-y-1 transition-all active:translate-y-2 active:shadow-none flex items-center justify-center gap-4">
+<span>LANJUTKAN KE LEVEL 5</span>
+<span class="material-symbols-outlined text-4xl">play_circle</span>
+</button>
+</footer>
+<!-- BottomNavBar (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-[60] flex justify-around items-center px-gutter pb-4 h-24 bg-surface-container shadow-[0px_-4px_0px_0px_rgba(224,227,229,1)] rounded-t-lg hidden md:flex">
+<!-- Manual exclusion for this specific transactional/focused task screen if strictly following "Relevance Check", but keeping for app consistency as per base instructions unless "Suppression" is triggered. Given it's a menu scene, it's a top-level destination. -->
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-6 py-2 shadow-[0px_4px_0px_0px_rgba(15,116,39,1)] cursor-pointer">
+<span class="material-symbols-outlined">videogame_asset</span>
+<span class="font-label-bold text-label-bold">Main</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">stars</span>
+<span class="font-label-bold text-label-bold">Stiker</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-bold text-label-bold">Profil</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for Zone selection
+        document.querySelectorAll('section > div.cursor-pointer').forEach(zone => {
+            zone.addEventListener('click', () => {
+                if(!zone.classList.contains('grayscale')) {
+                    document.querySelectorAll('section > div.cursor-pointer').forEach(z => z.classList.remove('border-primary', 'scale-102'));
+                    zone.classList.add('border-primary', 'scale-102');
+                    
+                    // Simple pop animation
+                    zone.animate([
+                        { transform: 'scale(1.02)' },
+                        { transform: 'scale(1.08)' },
+                        { transform: 'scale(1.02)' }
+                    ], { duration: 200 });
+                }
+            });
+        });
+    </script>
+</body></html>
